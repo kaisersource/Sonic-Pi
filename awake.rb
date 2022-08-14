@@ -1,10 +1,10 @@
-# 64 eighth notes
+#Author: KaiserSource
 
 entrance = [
-  [:C5] * 32,
-  [:A4] * 16,
-  [:D5] * 6,
-  [:C5] * 10,
+  [:Db5] * 32,
+  [:Bb4] * 16,
+  [:Eb5] * 6,
+  [:Db5] * 10,
 ].flatten
 
 
@@ -14,7 +14,7 @@ bass_riff = [
   [:Fs3] * 26,
   [:As2] * 6,
   [:Fs3] * 7,
-  [:Ds3] * 3
+  [:Ds3] * 3,
 ].flatten
 
 guitar_riff = [
@@ -25,17 +25,25 @@ guitar_riff = [
   [:F5, :Cs5] * 3,
   [:Ab5,:Db5] * 1,
   [:Ab5] * 2,
-  [:F5],
+  [:F5], [:Cs5] * 1,
+  [nil] * 1,
+  [:As5] * 1,
+  [nil] * 1,
+  [:As5] * 1,
+  [:F5, :Cs5] * 3,
+  [:Ab5,:Db5] * 1,
+  [:Ab5] * 2,
+  [:C6] * 1,
   [nil] * 1,
 ].flatten
 
 
 live_loop :entrance do
-  with_fx :rbpf do
+  with_fx :echo do
     #2048.times do |i|
-    use_synth :dark_ambience
+    use_synth :blade
     entrance.each do |note|
-      play note, amp: 8
+      play note, amp: 0.20
       sleep 0.15
     end
     #end
@@ -67,12 +75,10 @@ end
 live_loop :drum do
   sleep 19.2
   2048.times do |i|
-    sample :drum_bass_hard     if i % 4 == 0
+    sample :drum_bass_hard if i % 4 == 0
     sample :drum_cymbal_closed if i % 1 == 0
     sample :drum_snare_hard   if i % 8 == 4
     sleep 0.15
   end
+  
 end
-
-
-
