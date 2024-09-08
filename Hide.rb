@@ -1,9 +1,4 @@
-# 64 eighth notes
 use_bpm 72
-
-define :plGuitar do
-  sample "C:\Users\EmanueleBosimini\Desktop\Sonic Pi\Samples\Strings\Strings\guitar\guitar_F2_very-long_forte_normal.wav"
-end
 
 x = 2048
 
@@ -138,7 +133,6 @@ live_loop :cymbal do
     sleep 0.20
   end
 end
-
 
 
 
